@@ -92,7 +92,6 @@ SYN-ACK
  ↓
 ACK
 ```
-```markdown
 
 TCP flags, source and destination ports, sequence numbers, and acknowledgement numbers were examined using Wireshark.
 
