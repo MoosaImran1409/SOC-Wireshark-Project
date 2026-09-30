@@ -1,0 +1,43 @@
+==================================
+DNS TRAFFIC ANALYSIS
+==================================
+
+Investigation ID: DNS-001
+
+Date: 28 September, 2026
+
+Tool: Wireshark 4.6.6
+
+OS: Kali Linux
+
+Activity: DNS query generated using nslookup
+
+Domain queried: google.com
+
+Source IP: 192.168.153.129
+
+Destination IP: 192.168.153.2
+
+Transport Protocol: UDP
+
+Source Port: 49881
+
+Destination Port: 53
+
+DNS Query Type: A
+
+Observation:
+A DNS Query was generated from the Kali Linux system to resolve the domain google.com.
+The captured packet used IPv4 and UDP transport, with Destination Port 53.
+The DNS query requested the IPv4 address associated with google.com.
+
+Evidence:
+01-dns-analysis.pcapng
+01-dns-packet-analysis.png
+01-dns-packet-analysis(2).png
+
+Conclusion:
+The Captured traffic represents a normal DNS resolution Request.
+No malicious activity was identified from this individual DNS query.
+============================================
+

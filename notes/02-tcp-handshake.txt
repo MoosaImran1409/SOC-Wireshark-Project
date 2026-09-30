@@ -1,0 +1,42 @@
+=================================
+TCP THREE-WAY HANDSHAKE ANALYSIS
+=================================
+
+Investigation ID: TCP-001
+
+Date: 28 September, 2026
+
+Tool: Wireshark 4.6.6
+
+OS: Kali Linux
+
+Activity: TCP connection generated using curl against netflix.com.
+
+Client (Source) IP: 192.168.153.129
+
+Server (Dest) IP: 54.74.73.31
+
+Client Source Port: 54896
+
+Server Destination Port: 80
+
+TCP Handshake:
+1. SYN
+Client → Server
+2. SYN-ACK
+Server → Client
+3. ACK
+Client → Server
+
+Observation:
+A TCP three-way handshake was observed between the Kali Linux system and the remote server.
+The connection began with a SYN packet, followed by a SYN-ACK response, and was completed by an ACK packet.
+The TCP handshake demonstrates the establishment of a TCP connection before application data is exchanged.
+
+Evidence:
+02-tcp-handshake.pcapng
+02-tcp-handshake.png
+
+Conclusion:
+The captured packets demonstrate a normal TCP connection establishment sequence.
+========================================

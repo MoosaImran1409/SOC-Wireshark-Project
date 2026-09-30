@@ -1,0 +1,310 @@
+==================================================
+NETWORK TRAFFIC ANALYSIS LAB
+==================================================
+
+Project Type: Network Traffic Analysis / Blue Team Fundamentals
+
+Analyst: Moosa Ansari
+
+OS: Kali Linux
+
+Virtualization: VMware
+
+Primary Tool: Wireshark 4.6.6
+
+Additional Tools:
+Nmap
+curl
+nslookup
+Python HTTP Server
+
+==================================================
+1. PROJECT OVERVIEW
+==================================================
+
+This project demonstrates practical network traffic analysis using Wireshark
+in a controlled Kali Linux laboratory environment.
+
+The objective was to capture, filter, inspect, and document different types
+of network traffic and identify relevant network indicators and communication patterns.
+
+The investigation covered:
+1. DNS query and response analysis
+2. TCP connection analysis
+3. HTTP request and response analysis
+4. TCP SYN port-scan analysis
+5. TCP stream reconstruction
+
+===================================================
+2. LAB ENVIRONMENT
+===================================================
+
+Operating System: Kali Linux
+
+Platform: VMware
+
+Wireshark Version: 4.6.6
+
+Network Interface: eth0 / lo (depending on investigation)
+
+All activities were performed in a controlled laboratory environment using
+intentionally generated traffic.
+
+====================================================
+3. INVESTIGATION METHODOLOGY
+====================================================
+
+The following methodology was used throughout the project:
+
+1. Generate controlled network traffic.
+
+2. Capture packets using Wireshark.
+
+3. Apply protocol-specific display filters.
+
+4. Inspect packet headers and protocol layers.
+
+5. Identify source and destination IP addresses.
+
+6. Identify source and destination ports.
+
+7. Identify protocols and TCP flags.
+
+8. Analyze communication patterns.
+
+9. Capture screenshots as packet-level evidence.
+
+10. Document observations and security implications.
+
+===================================================
+4. INVESTIGATION SUMMARY
+===================================================
+
+Investigation 01: DNS Traffic Analysis
+
+Investigation 02: TCP Connection / Handshake Analysis
+
+Investigation 03: HTTP Traffic Analysis
+
+Investigation 04: TCP SYN Port Scan Analysis
+
+Investigation 05: TCP Stream Reconstruction
+
+====================================================
+5. INVESTIGATION FINDINGS
+====================================================
+
+-------------------------------------------------
+INVESTIGATION 01 — DNS
+-------------------------------------------------
+
+Activity: DNS resolution request
+
+Source IP: 192.168.153.129
+
+Destination IP: 192.168.153.2
+
+Transport Protocol: UDP
+
+Destination Port: 53
+
+Query: google.com
+
+Observation:
+A DNS A-record query was generated to resolve google.com.
+The request was sent using UDP to destination port 53.
+
+Security Assessment:
+No malicious activity was identified from this individual
+DNS request.
+
+------------------------------------------------------------
+INVESTIGATION 02 — TCP CONNECTION
+------------------------------------------------------------
+
+Activity: TCP connection analysis
+
+Protocol: TCP
+
+Observation: The capture demonstrated TCP connection establishment
+using SYN, SYN-ACK, and ACK packets.
+
+Security Relevance:
+Understanding TCP connection establishment helps analysts recognize normal connection
+behavior and distinguish it from abnormal or incomplete connection attempts.
+
+----------------------------------------------------
+INVESTIGATION 03 — HTTP
+----------------------------------------------------
+
+Activity: HTTP request and response
+
+Source IP: 192.168.153.129
+
+Destination IP: 172.66.147.243
+
+Protocol: HTTP
+
+Destination Port: 80
+
+Request: HEAD / HTTP/1.1
+
+Response: HTTP/1.1 200 OK
+
+Observation:
+The HTTP request was successfully processed by the remote server.
+
+Security Relevance:
+HTTP traffic is not encrypted at the application layer, meaning HTTP request
+and response information may be visible to a network packet analyzer.
+
+----------------------------------------------------
+INVESTIGATION 04 — TCP SYN PORT SCAN
+----------------------------------------------------
+
+Activity: Controlled TCP SYN scan
+
+Source: 127.0.0.1
+
+Target: 127.0.0.1
+
+Scan Type: TCP SYN Scan
+
+Tool: Nmap
+
+Port Range: 8075-8085
+
+Important Results:
+
+Port 8080:
+SYN -> SYN-ACK -> RST
+Open
+
+Port 8084:
+SYN -> RST-ACK
+Closed
+
+Port 8079:
+SYN -> RST-ACK
+Closed
+
+Observation:
+Multiple SYN requests were sent to different destination
+ports within a short period.
+
+Security Relevance:
+Repeated connection attempts across multiple ports can be indicative
+of network reconnaissance or port-scanning activity.
+
+The activity was intentionally generated in the laboratory
+and does not represent a real attack.
+
+---------------------------------------------------
+INVESTIGATION 05 — TCP STREAM
+---------------------------------------------------
+
+Activity: TCP stream reconstruction
+
+Application: HTTP
+
+Observation:
+Wireshark's Follow TCP Stream functionality was used to reconstruct the
+HTTP request and response into a single conversation view.
+
+Security Relevance:
+Stream reconstruction allows an analyst to review an application
+conversation without manually examining each packet individually.
+
+====================================================
+6. SOC ANALYST PERSPECTIVE
+====================================================
+
+During network traffic analysis, the following indicators were reviewed:
+- Source IP address
+- Destination IP address
+- Source port
+- Destination port
+- Transport protocol
+- Application protocol
+- TCP flags
+- DNS queries
+- HTTP requests and responses
+- Connection behavior
+- Repeated connection attempts
+
+
+A SOC analyst can use these indicators to determine:
+- Which host initiated communication
+- Which host received communication
+- Which service or port was targeted
+- What protocol was used
+- Whether a connection was established
+- Whether multiple ports were being probed
+- Whether application-layer information was exposed
+- Whether additional investigation is required
+
+====================================================
+7. SECURITY INVESTIGATION WORKFLOW
+====================================================
+
+Observed Traffic
+       
+Identify Source / Destination
+       
+Identify Protocol
+       
+Identify Ports
+       
+Inspect Packet Flags
+       
+Analyze Communication Pattern
+       
+Determine Whether Activity Is Normal
+       
+Document Evidence
+       
+Recommend Further Investigation
+
+===================================================
+8. LIMITATIONS
+===================================================
+
+This project was performed in an isolated and controlled laboratory environment.
+
+The observed traffic was intentionally generated for educational purposes.
+
+The project demonstrates packet-analysis techniques and basic
+network security investigation methodology.
+
+The findings should not be interpreted as evidence of a real-world compromise.
+
+In a production SOC environment, packet analysis would normally be combined
+with additional telemetry such as:
+- Firewall logs
+- IDS/IPS alerts
+- DNS logs
+- Proxy logs
+- Endpoint telemetry
+- Authentication logs
+- SIEM correlation
+
+==================================================
+9. CONCLUSION
+==================================================
+
+This project provided practical experience in analyzing network traffic using Wireshark.
+
+The investigation covered DNS, TCP, HTTP, port-scanning behavior, and TCP stream reconstruction.
+
+Packet-level analysis was used to identify source and destination IP addresses, ports,
+protocols, TCP flags, DNS queries, HTTP requests, and communication patterns.
+
+The project also demonstrated how network traffic observations can be documented as
+security evidence and interpreted from a basic SOC analyst perspective.
+
+The laboratory exercises strengthened practical understanding of network protocols,
+packet analysis, network reconnaissance indicators, and evidence-based security investigation.
+
+============================================================
+END OF REPORT
+============================================================

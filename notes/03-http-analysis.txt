@@ -1,0 +1,48 @@
+================================
+HTTP REQUEST/RESPONSE ANALYSIS
+================================
+
+Investigation ID: HTTP-001
+
+Date: 28 September, 2026
+
+Tool: Wireshark 4.6.6
+
+OS: Kali Linux
+
+Activity: HTTP traffic generated using curl.
+
+Source IP: 192.168.153.129
+
+Destination IP: 172.66.147.243
+
+Source Port: 57032
+
+Destination Port: 80
+
+HTTP Method: HEAD
+
+Request URI: /
+
+Host: example.com
+
+HTTP Response: 200 OK
+
+Server: cloudflare
+
+Observation:
+An HTTP HEAD request was generated from the Kali Linux system to example.com and captured using Wireshark.
+The request was sent to the remote server over TCP port 80.
+The server returned an HTTP/1.1 200 OK response.
+The packet capture allowed inspection of the HTTP request and response headers, including the
+requested URI, Host information, Content-Type, and server information.
+
+Conclusion:
+The captured traffic demonstrates successful application-layer TTP communication over a TCP connection.
+Because HTTP is unencrypted, the request and response headers were visible in the packet capture.
+
+Evidence:
+03-http-analysis.pcapng
+03-http-analysis.png
+
+========================================
