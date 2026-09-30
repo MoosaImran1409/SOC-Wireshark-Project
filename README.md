@@ -60,6 +60,8 @@ SOC-Wireshark-Project/
     ├── 04-port-scan-syn-ack-open.png
     ├── 04-port-scan-syn.png
     └── 05-tcp-stream-reconstruction.png
+```text
+
 
 ## Investigations Performed
 
@@ -89,6 +91,7 @@ SYN
 SYN-ACK
  ↓
 ACK
+```text
 
 TCP flags, source and destination ports, sequence numbers, and acknowledgement numbers were examined using Wireshark.
 
